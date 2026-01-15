@@ -13,7 +13,7 @@ export const products: DetailedProduct[] = [
     id: "fohow-garlic-oil",
     name: "FOHOW Garlic Oil Soft Capsules",
     price: 4500,
-    image: "/products/garlic-oil.jpg",
+    image: "https://github.com/Top-G-420/ROOT_2HEALTH/blob/main/public/products/garlic-oil.JPG?raw=true",
     description: "Premium garlic oil capsules designed to support cardiovascular wellness and immune function through the power of nature.",
     philosophy: "Drawing from centuries of traditional wisdom, FOHOW Garlic Oil Soft Capsules embody the belief that nature provides the most potent solutions for human health. Garlic has been revered across cultures for its remarkable properties, and we've captured its essence in a convenient, odorless form.",
     ingredients: [
