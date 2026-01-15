@@ -40,13 +40,19 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
         to={`/product/${product.id}`}
         className="block glass-card rounded-2xl overflow-hidden transition-shadow hover:shadow-soft-lg"
       >
-        {/* Image placeholder */}
-        <div className="aspect-square bg-gradient-to-br from-sage/20 to-earth-light relative overflow-hidden">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center">
-              <span className="text-3xl">🌿</span>
-            </div>
-          </div>
+        {/* Product Image */}
+        <div className="aspect-square relative overflow-hidden rounded-2xl bg-gradient-to-br from-sage/20 to-earth-light">
+          <img
+            src={product.image} // <-- actual product image from public folder
+            alt={product.name}
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              // fallback if image fails
+              e.currentTarget.src = "/products/placeholder.jpg";
+            }}
+          />
+
+          {/* Premium badge */}
           <div className="absolute top-3 right-3">
             <span className="px-3 py-1 text-xs font-medium rounded-full bg-gold/90 text-charcoal">
               Premium
@@ -54,13 +60,13 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
           </div>
         </div>
 
-        {/* Content */}
+        {/* Product Content */}
         <div className="p-4">
           <h3 className="font-semibold text-foreground line-clamp-2">{product.name}</h3>
           <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">
             {product.description}
           </p>
-          
+
           <div className="mt-4 flex items-center justify-between">
             <span className="text-lg font-bold text-primary">{formatPrice(product.price)}</span>
             <Button
